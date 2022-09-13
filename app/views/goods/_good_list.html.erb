@@ -1,0 +1,12 @@
+    <% if@items.present? %>
+    <% @items.each do |item| %>
+    <div class="list">
+      <% if item['mediumImageUrls'][0].present? %>
+      <div style="border: 1px solid;margin-bottom:30px;">
+        <%= link_to item['itemName'], item['affiliateUrl'] %>
+        <%= link_to image_tag(item['mediumImageUrls'][0]), item['itemUrl'], :style=>"width:300px;display:block;" %>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+    <% end %>
