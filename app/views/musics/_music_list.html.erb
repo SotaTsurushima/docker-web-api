@@ -1,0 +1,13 @@
+<div>
+  <% if @searchartists.present? %>
+  <% @searchartists.each do |searchartist| %>
+  <h3><%= searchartist.name %></h3>
+  <% if searchartist.images.any?%>
+  <%image = searchartist.images[1]%>
+  <%= image_tag(image["url"])%>
+  <%else%>
+  <%= image_tag("default.jpg")%>
+  <%end%>
+  <%end%>
+  <%end%>
+</div>

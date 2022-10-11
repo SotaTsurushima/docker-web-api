@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>トップページです</h1>
-  <%= link_to '楽天API', controller: 'goods', action: 'search' %>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>トップページです</h1>
+    <div>
+      <%= link_to '楽天API', controller: 'goods', action: 'search' %>
+    </div>
+    <div>
+      <%= link_to 'Spotify API', controller: 'musics', action: 'search' %>
+    </div>
+  </body>
 </html>
