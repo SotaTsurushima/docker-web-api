@@ -1,8 +1,17 @@
 <%= link_to 'トップに戻る', '/' %>
-<h3>Spotify アーティスト名で検索</h3>
-<%= form_with url: musics_search_path, method: :get, local: true do |form| %>
-  <%= form.text_field :search %>
-  <div style="margin-top:15px">
-    <%= form.submit 'アーティスト名検索', name: nil %>
+<h1>Spotify アーティスト名で検索</h1>
+<div class="content">
+  <div id="search-box">
+    <%= form_with url: musics_search_path, method: :get, local: true do |form| %>
+      <%= form.text_field :search %>
+      <div style="margin-top:15px">
+        <%= form.submit 'アーティスト名検索', name: nil %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+  <h2>検索結果</h2>
+  <%# music_listページを表示している %>
+  <div id="music_list">
+    <%= render partial: 'music_list' %>
+  </div>
+</div>
