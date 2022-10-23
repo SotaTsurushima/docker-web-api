@@ -60,18 +60,19 @@ class UsersController < ApplicationController
   end
 
   def notifier
-      notifier = Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL'])
-      notifier.ping("Hello")
-    end
+    notifier = Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL'])
+    notifier.ping("Hello")
+    render("/top/index")
+  end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:name)
-    end
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:name)
+  end
 end
