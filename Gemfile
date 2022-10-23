@@ -17,13 +17,12 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
+# webapiのやーつ
 gem 'rakuten_web_service'
-
 gem 'rspotify'
+gem 'slack-notifier'
 
 gem 'pry-rails'
-
-
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
