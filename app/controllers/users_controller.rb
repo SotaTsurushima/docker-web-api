@@ -59,6 +59,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def notifier
+      notifier = Slack::Notifier.new(ENV['SLACK_WEBHOOK_URL'])
+      notifier.ping("Hello")
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -68,9 +73,5 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name)
-    end
-
-    def notifier
-      Slack::Notifier.new(WEBHOOK_URL: ENV['SLACK_WEBHOOK_URL'], username: ENV['USER_NAME'], icon_emoji: ':sunglasses:')
     end
 end
