@@ -21,8 +21,8 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    picture = User.get_random_user()
-    
+    @user = User.create(name: User.create_random_user())
+    redirect_to users_path
   end
 
   # PATCH/PUT /users/1 or /users/1.json
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   end
 
   # # Only allow a list of trusted parameters through.
-  # def user_params
-  #   params.require(:user).permit(:name)
-  # end
+  def user_params
+    params.require(:user).permit(:name)
+  end
 end
