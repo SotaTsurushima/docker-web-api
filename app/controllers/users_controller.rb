@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
+  require "net/http"
 
   # GET /users or /users.json
   def index
@@ -21,19 +22,14 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
+    
+    
+    uri = URI.parse("https://randomuser.me/api/?results=5")
+    binding.pry
+    # response = Net::HTTP.get_ response(uri)
+    
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        notifier.ping = "ユーザーが作成されました。"
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
-      else
-        notifier.ping = "ユーザーの作成に失敗しました。"
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /users/1 or /users/1.json
