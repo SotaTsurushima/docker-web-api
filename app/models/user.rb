@@ -6,10 +6,11 @@ class User < ApplicationRecord
     response = Net::HTTP.get_response(URI.parse(uri)).body
     res = JSON.parse(response)
 
-    title = res["results"][0]["name"]["title"]
-    first = res["results"][0]["name"]["first"]
-    last = res["results"][0]["name"]["last"]
-    name = "#{title + first + last}"
+    hash_name = []
+    hash_name.push(res["results"][0]["name"]["title"])
+    hash_name.push(res["results"][0]["name"]["first"])
+    hash_name.push(res["results"][0]["name"]["last"])
+    name = hash_name.join(' ')
     
     return name
   end
