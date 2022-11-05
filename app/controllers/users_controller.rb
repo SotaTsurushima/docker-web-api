@@ -21,7 +21,8 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    User.get_random_user()
+    picture = User.get_random_user()
+    
   end
 
   # PATCH/PUT /users/1 or /users/1.json
