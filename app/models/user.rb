@@ -9,19 +9,15 @@ class User < ApplicationRecord
     user_data = []
     user_name = []
     
-    # user_name作成
+    # user_name追加
     user_name.push(res["results"][0]["name"]["title"])
     user_name.push(res["results"][0]["name"]["first"])
     user_name.push(res["results"][0]["name"]["last"])
     user_name = user_name.join(' ')
     user_data.push(user_name)
 
-    # 写真URLの作成
-    user_data.push(res["results"][0]["picture"]["medium"])
-
-
-    binding.pry
     # 写真URLの追加
+    user_data.push(res["results"][0]["picture"]["medium"])
 
     return name
   end
