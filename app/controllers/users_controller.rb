@@ -16,8 +16,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(name: User.create_random_user()[0], image_url: User.create_random_user()[1])
-    
+    @users = User.create(name: User.create_random_user()[0], image_url: User.create_random_user()[1])
     redirect_to users_path
   end
 
