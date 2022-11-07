@@ -19,6 +19,6 @@ class User < ApplicationRecord
     # 写真URLの追加
     user_data.push(res["results"][0]["picture"]["medium"])
 
-    return name
+    return user_data
   end
 end
