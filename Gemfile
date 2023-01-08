@@ -17,8 +17,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'rakuten_web_service'
 gem 'rspotify'
 gem 'slack-notifier'
-gem 'omniauth', '~> 1.9.1'
-gem 'omniauth-github'
 
 gem 'pry-rails'
 
