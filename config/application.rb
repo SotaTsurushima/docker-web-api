@@ -11,9 +11,10 @@ module RakuSearch
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    config.autoload_paths += %W(#{config.root}/lib)
+    
+    # 特にここ！！Rails5から productionでも呼び出せるように設定しないといけない
+    config.enable_dependency_loading = true 
   end
 end
+
