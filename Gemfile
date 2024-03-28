@@ -6,6 +6,7 @@ ruby '2.6.6'
 gem 'rails', '~> 6.0.5', '>= 6.0.5.1'
 gem 'mysql2'
 
+gem 'whenever'
 gem 'dotenv-rails'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
