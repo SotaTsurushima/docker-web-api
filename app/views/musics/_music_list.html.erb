@@ -5,6 +5,7 @@
       <% if searchartist.images.any?%>
         <%image = searchartist.images[1]%>
         <%= image_tag(image["url"])%>
+        <%= image_tag("https://http.cat/102")%>
       <%else%>
         <h1>画像が存在しません</h1>
       <%end%>
