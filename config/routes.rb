@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/goods/search' , to: 'goods#search'
   get '/musics/search' , to: 'musics#search'
   get '/slack/notifier' , to: 'users#notifier'
+  post 'callback' => 'line_bot#callback'
 end
