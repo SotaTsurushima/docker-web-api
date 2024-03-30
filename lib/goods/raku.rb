@@ -1,15 +1,18 @@
 module Goods::Raku extend self
   def batch
-    puts 01010101010
-    # @client = config
-    # tags = Settings.batch.hashtags
+    # later it should be done depending on what I write
 
-    # latest_tweet = Sns.where(sns_type_id: 2).order(post_date: :desc).first
-    # latest_id = latest_tweet.nil? ? nil : latest_tweet.post_id
-
-    # tags.each do | tag |
-    #   search(tag, latest_id)
-    # end
+    # t['itemName']
+    # t['itemPrice']
+    # t['reviewAverage']
+    # t['mediumImageUrls'](存在すれば)
+    # 20件取得する
+    @test = RakutenWebService::Ichiba::Item.search(keyword: "IT 本")
+    for t in @test
+      binding.pry
+      puts t
+    end
+    
   end
 
   private
