@@ -121,26 +121,7 @@ class LineBotController < ApplicationController
 
           items_information = view_context.raku_search(message[:text])
           
-          # mediumImageUrls: t['mediumImageUrls'],
-          # itemName: t['itemName'],
-          # itemPrice: t['itemPrice'],
-          # reviewAverage: t['reviewAverage']
-          items_information.each_with_index do |i, index|
-            # puts carousel[0][:template][:columns][1][:imageUrl]
-            # puts carousel[0][:template][:columns][2][:imageUrl]
-            # puts carousel[0][:template][:columns][index][:action][:text]
-            carousel[0][:template][:columns][index][:thumbnailImageUrl] = i[:mediumImageUrls][0]
-            puts "--------------------------------"
-            puts carousel[0][:template][:columns][index][:text]
-            puts i[:itemName]
-            carousel[0][:template][:columns][index][:text] = "aaa"
-            carousel[0][:template][:columns][index][:text] = i[:itemName]
-            puts "--------------------------------"
-          end
-
-          puts carousel
-
-          # imageURL書き換えたい
+          set_carousel_values(carousel, items_information)
 
           client.reply_message(event['replyToken'], carousel)
         end
@@ -157,4 +138,14 @@ class LineBotController < ApplicationController
     }
   end
 
+  def set_carousel_values(carousel, items)
+    items.each_with_index do |i, index|
+      carousel[0][:template][:columns][index][:thumbnailImageUrl] = i[:mediumImageUrls][0]
+      carousel[0][:template][:columns][index][:title] = i[:itemName]
+      carousel[0][:template][:columns][index][:text] = i[:itemPrice].to_s + " 円  " + "評価: " + i[:reviewAverage].to_s
+      carousel[0][:template][:columns][index][:actions][0][:uri] = i[:itemUrl].to_s
+    end
+
+    return carousel
+  end
 end
